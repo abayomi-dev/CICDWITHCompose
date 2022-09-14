@@ -9,7 +9,7 @@ pipeline{
         }
         stage('Build image'){
             steps{
-                docker build -t scinet0786/kompose:"${env.BUILD_ID}"
+                docker build -t scinet0786/kompose:latest
             }
 
         stage('Test image'){
