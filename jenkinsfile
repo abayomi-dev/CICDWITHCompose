@@ -1,0 +1,33 @@
+pipeline{
+    agent any
+    def App
+    stages{
+        stage('Checkout SCM'){
+            steps{
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/Osiephri/KomposePipeline']]])
+            }
+        }
+        stage('Build image'){
+            steps{
+                docker build -t scinet0786/Kompose:"${env.BUILD_ID}"
+            }
+
+        stage('Test image'){
+            steps{
+                script{
+                    App.inside{
+                        echo "This test passed"
+                    }
+                }
+            }
+        }
+
+        }
+        stage('Push Image to Hub'){
+            steps{
+                script{
+                    docker.withRegistry('http:registry.hub.docker.com','dockerhub')
+                    App.push("${env.BUILD_ID}")
+            }
+            }
+        }

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Kubernetes-Deployment
+  labels:
+    app: Kubernetes-Deployment
+spec:
+  replicas: 2
+  selector:
+    labels: 
+      app: Kubernetes-Deployment
+  template:
+    metadata:
+      matchLabels: 
+        app: Kubernetes-Deployment
+    spec:
+      containers:
+      - image: Scinet0786/Kompose:Latest
+        name: Kompose
+        imagePullPolicy: IfNotPresent
+        ports:
+          containerPort: 8081
+        env:
+        
+  
+  

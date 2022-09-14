@@ -1,0 +1,32 @@
+pipeline{
+    agent any
+    script{
+        def App
+    }
+    stages{
+        stage('Checkout SCM'){
+            steps{
+                checkout scm
+            }
+
+        }
+        stage('Update Kubernetes manifest file'){
+            script{
+                catchError(BuildResult: "Success" ,StageResult: "Failure"){
+                    withCredentials([usernamePassword(credentialsId: 'GitHUB Token' , PasswordVariable: 'GIT_PASSWD' ,Usernamevariable: 'GIT_USR')]){
+                        steps{
+                            sh cat KubernetesDeployment.yaml
+                            sh "sed -i 's+scinet0786/Kompose.*+scinet0786/Kompose:${DockerTag}+g'" KubernetesDeployment.yaml
+                            sh  cat KubernetesDeployment.yaml
+                            git add .
+                            git commit -m "Updating the kubernetes resource to run the following release : ${env.BUILD_ID}"
+                            git push http://$GIT_USR:$GIT_PASSWD@Github.com/$GIT_USR/kubernetesdeployment.git
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+}
