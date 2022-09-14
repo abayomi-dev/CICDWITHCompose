@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Kubernetes-Deployment
+  labels:
+    app: Kubernetes-Deployment
+spec:
+  replicas: 2
+  selector:
+    labels: 
+      app: Kubernetes-Deployment
+  template:
+    metadata:
+      matchLabels: 
+        app: Kubernetes-Deployment
+    spec:
+      containers:
+      - image: scinet0786/kompose:Latest
+        name: Kompose
+        imagePullPolicy: IfNotPresent
+        ports:
+          containerPort: 8081
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name:Kube-Svc
+spec:
+  type: LoadBalancer
+  Selector:
+    app: Kubernetes-Deployment
+  ports:
+  - protocol: TCP
+    port: 8081
+    TargetPort: 8081
+        

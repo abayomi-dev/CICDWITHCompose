@@ -1,33 +1,41 @@
-pipeline{
+pipeline {
     agent any
-    def App
-    stages{
-        stage('Checkout SCM'){
-            steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/Osiephri/CICDWITHCompose']]])
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+                echo 'This is a success'
             }
         }
+        
+        stage('Checkout from scm'){
+            steps{
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/Osiephri/CICDWITHCompose']]])
+            }
+        }
+        
         stage('Build image'){
             steps{
-                docker build -t scinet0786/kompose:latest
-            }
-
-        stage('Test image'){
-            steps{
                 script{
-                    App.inside{
-                        echo "This test passed"
-                    }
+                    sh 'docker build -t scinet0786/kompose:latest .'
                 }
             }
         }
-
-        }
-        stage('Push Image to Hub'){
+        
+        stage('push image to hub'){
             steps{
-                script{
-                    docker.withRegistry('http:registry.hub.docker.com','dockerhub')
-                    App.push("${env.BUILD_ID}")
-            }
+                sh 'docker login -u scinet0786 -p *bay0mi12'
+                sh  "docker push 'scinet0786/kompose:latest'"
             }
         }
+        
+        stage('deploy to Eks cluster'){
+            steps{
+                withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'kubernetes', namespace: '', serverUrl: '') {
+                    sh kubectl apply -f ./DeploymentFile/KubernetesDeployment.yaml
+}
+            }
+        }
+}
+}  
