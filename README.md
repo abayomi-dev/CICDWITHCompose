@@ -1,5 +1,5 @@
 # Task
-## - You are to set up CI?CD for https://github.com/do-community/node-mongo-docker-dev and to do these we have to follow some processes.
+## - You are to set up CI/CD for https://github.com/do-community/node-mongo-docker-dev and to do these we have to follow some processes.
 ## - You are to assist in shifting deployment from  api_driven architecture(monolith) to microservices. 
 ## - You are to set up moitoring and observability to monitor this process and its configuration.
 
@@ -21,6 +21,12 @@
 - `Terraform apply`
 **Output**
 ![Terraform apply output](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/Youverify12.PNG)
-** The jenkins server should show the following
-![Jenkins server output](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/youverfy11.PNG)
-**SSH into the running instance and check the files are installed after which you should start the jenkins service via `<LOADBALANCER_URL>:8080` 
+**The jenkins server should show the following**
+![Jenkins server output](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/youverify11.PNG)
+**SSH into the running instance and check the files are installed after which you should start the jenkins service via `<LOADBALANCER_URL>:8080`**
+
+# Create the pipeline
+- We do these by setting a **Newproject** with a unique name and a git tags
+- Install all Necessary plugins to run this jenkins file and after running the jenkinsfile we should deploy our built image from the Dockerfile to the HUB
+- After you configure  the job, ***BUILD IT*** and ensure all phases are checked as we see below.
+![Jenkins pipeline Output]
