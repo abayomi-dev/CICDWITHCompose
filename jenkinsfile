@@ -32,8 +32,9 @@ pipeline {
         
         stage('deploy to Eks cluster'){
             steps{
-                withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'kubernetes', namespace: '', serverUrl: '') {
-                    sh  'kubectl apply -f deploymwnt.yaml'
+                kubeconfig(credentialsId: 'kubernetes', serverUrl: '') {
+                    sh 'kubectl version'
+                    sh 'kubectl apply -f deployment.yaml'
 }
             }
         }
