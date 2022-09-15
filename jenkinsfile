@@ -33,7 +33,7 @@ pipeline {
         stage('deploy to Eks cluster'){
             steps{
                 withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'kubernetes', namespace: '', serverUrl: '') {
-                    sh  '~/bin/kubectl apply -f deploymwnt.yaml'
+                    sh  'kubectl apply -f deploymwnt.yaml'
 }
             }
         }
