@@ -12,8 +12,8 @@
 
 # Before we consider the CI/CD pipeline lets see the system design for this project.</br>
 ![System design](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/Untitled%20Diagram.drawio.png)</br>
-- **The developer commits a change and through webhook configured on the Jenkins slave to use git.**</br>
-- **The Jenkins slave builds the image and pushes it to DockerHub and makes it available to kubernetes.**</br>
+- **The developer commits a change and through webhook configured on the Jenkins slave the git plugins updates the Source codes in the V.C.S.**</br>
+- **The Jenkins slave builds the image and pushes it to DockerHub which makes it available to be used by kubernetes.**</br>
 - **Inside the Kubernetes cluster the changes are regularly polled from the deployment and then exposed via a loadbalncer to the internet.**</br>
 - **The application(deployment) is monitored for logs using Prometheus and grafana created using Helm.**</br>
 
@@ -90,7 +90,7 @@
 **Check the dashboard below**</br>
 [Click to view prometheus dashboard](abb4a2dee63c8443f92c59591d65d9f2-39184252.us-east-1.elb.amazonaws.com:80)</br>
 
-**We would connect to grafana by port-forwarding,and since it doesnot contain a loadbalancer we will connect to it through the following command.**</br>
+**We would connect to grafana by port-forwarding,and since it does not contain a loadbalancer we will connect to it through the following command.**</br>
 `kubectl port-forward svc/grafana 8081:80`</br>
 **View the dashboard to our cluster below.**
 ![Dashboard one](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/youverfy15.PNG)
@@ -102,7 +102,7 @@
 `- Shift Application components into several files and packages to be integrated. `</br>
 - **Packaging.**</br>
 `- Build all files and dependencies into an artifact or image and save it in a repository.`</br>
-- **DevOps.**<\br>
+- **DevOps.**</br>
 `- Automate the delivery of the application to deployment to eliminate errors in configuration.`</br>
 `- Perform test to each individual component of the Microservices before applying a performance test.`</br>
 `- This aids at shortening failure rates and seamlessly integrate the workloads into a computer engine for other processes.`</br>
