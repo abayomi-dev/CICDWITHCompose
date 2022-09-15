@@ -20,7 +20,7 @@
 ![Terraform plan output](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/youverfy13.PNG)
 - `Terraform apply`
 **Output**
-![Terraform apply output](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/youverfy12.PNG)
+![Terraform apply output](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/Youverify12.PNG)
 ** The jenkins server should show the following
 ![Jenkins server output](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/youverfy11.PNG)
 **SSH into the running instance and check the files are installed after which you should start the jenkins service via `<LOADBALANCER_URL>:8080` 
