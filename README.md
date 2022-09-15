@@ -10,12 +10,22 @@
 **SEE YOU AT THE END OF THE DOCUMENT.**</br>
 
 
-#Before we considerthe cicd pipeline lets see the systemdesign for this project.
+# Before we consider the CI/CD pipeline lets see the system design for this project.</br>
 ![System design](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/Untitled%20Diagram.drawio.png)</br>
+- **The developer commits a change and through webhook configured on the Jenkins slave to use git.**</br>
+- **The Jenkins slave builds the image and pushes it to DockerHub and makes it available to kubernetes.**</br>
+- **Inside the Kubernetes cluster the changes are regularly polled from the deployment and then exposed via a loadbalncer to the internet.**</br>
+- **The application(deployment) is monitored for logs using Prometheus and grafana created using Helm.**</br>
+
+**The process is automated seamlessly as seen in the image above.**</br>
+
+**Let's consider how to do these.**</br>
+
+
 # First lets consider the CI/CD pipeline
 - We would create a CI/CD using **Jenkins** and deploy it using kuberentes.
 - we have to set up the configuration environments and create the deployment scripts.
-- clone this repository to run changes and change env settings to avoid getting error codes.<\br>
+- clone this repository to run changes and change env settings to avoid getting error codes.</br>
 -  **Write `git clone -b master https://github.com/Osiephri/CICDWITHCompose 
 `** 
 
@@ -86,3 +96,32 @@
 ![Dashboard one](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/youverfy15.PNG)
 # Lets view other metrics.
 ![Dashboard two](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/youverfy16.PNG)
+
+# Shifting Workload from API-Application to Microservices.</br>
+- **Development.**</br>
+`- Shift Application components into several files and packages to be integrated. `</br>
+- **Packaging.**</br>
+`- Build all files and dependencies into an artifact or image and save it in a repository.`</br>
+- **DevOps.**<\br>
+`- Automate the delivery of the application to deployment to eliminate errors in configuration.`</br>
+`- Perform test to each individual component of the Microservices before applying a performance test.`</br>
+`- This aids at shortening failure rates and seamlessly integrate the workloads into a computer engine for other processes.`</br>
+- **Database Refractoring.**
+`- Integrate database services responsively in the decoupled and recoupled infrastructure.`</br>
+`- Use Master Database Management tools e.g MongoDB to achieve easier Workload transition.`</br>
+- **Infrastructure Architecturing.**
+`- Coordinate infrastructure of the Microservices by running the infrastructure as code,For portability and ease of use.`</br>
+
+**ADVANTAGES OF SHIFTING WORKLOADS**
+- Agility.
+- Fault Tolerance.
+- Availability.
+- PolyGot Persistence.
+
+# Conclusion.
+***- We have seen how to create a pipeline for our application,and also tips on shifting from monolith to Microservices.***</br>
+***- We've discovered ways to improve our already running Monolith system(Application).***</br>
+
+***Thanks for Reading Through.Best Regards.***</br>
+
+
