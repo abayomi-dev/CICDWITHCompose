@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: newdeployment
+  name: newdeployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: newdeployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: newdeployment
+    spec:
+      containers:
+      - image: scinet0786/kompose:latest
+        name: kompose
+        ports:
+         - containerPort: 8000
+        resources: {}
+status: {}
+
+---
+
