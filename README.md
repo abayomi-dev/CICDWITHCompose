@@ -9,6 +9,9 @@
 
 **SEE YOU AT THE END OF THE DOCUMENT.**</br>
 
+
+#Before we considerthe cicd pipeline lets see the systemdesign for this project.
+![System design](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/Untitled%20Diagram.drawio.png)</br>
 # First lets consider the CI/CD pipeline
 - We would create a CI/CD using **Jenkins** and deploy it using kuberentes.
 - we have to set up the configuration environments and create the deployment scripts.
