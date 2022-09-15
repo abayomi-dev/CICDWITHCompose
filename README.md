@@ -68,8 +68,9 @@
 **Check the dashboard below**
 [prometheus dashboard](abb4a2dee63c8443f92c59591d65d9f2-39184252.us-east-1.elb.amazonaws.com:80)
 
-**We would connect to grafana by port-forwarding and since it doesnt contain a loadbalancerwewould run the following command**
+**We would connect to grafana by port-forwarding,and since it doesnot contain a loadbalancer we will connect to it through the following command**
+`kubectl port-forward svc/grafana 8081:80`
 **View the dashboard to our cluster below**
 ![Dashboard one](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/youverfy15.PNG)
-**View other metrics**
+# Lets view other metrics
 ![Dashboard two](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/youverfy16.PNG)
