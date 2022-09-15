@@ -92,7 +92,7 @@
 **We Would Run the following command**</br>
 `kubectl expose service prometheus-server — type=LoadBalancer — target-port=9090 — name=prometheus-server-ext`</br>
 **Check the dashboard below**</br>
-[Click to view prometheus dashboard](abb4a2dee63c8443f92c59591d65d9f2-39184252.us-east-1.elb.amazonaws.com:80)</br>
+[Click to view prometheus dashboard](http://abb4a2dee63c8443f92c59591d65d9f2-39184252.us-east-1.elb.amazonaws.com:80)</br>
 
 **We would connect to grafana by port-forwarding,and since it does not contain a loadbalancer we will connect to it through the following command.**</br>
 `kubectl port-forward svc/grafana 8081:80`</br>
