@@ -29,9 +29,8 @@
 **I already packaged it into a script labelled `Cluster.sh`**
 - We create the cluster by running the following commands.
 *Open your bash terminal and write*
-`chmod +x cluster.sh
- ./cluster.sh
-`
+`chmod +x cluster.sh`
+ `./cluster.sh`
 **This creates an EKS cluster(AWS Managed) and is set to recieve our application** 
 
 
@@ -50,3 +49,23 @@
 # ACCESS OUR APPLICATION
 **WE CAN ACCESS OUR APPLICATION USING THE FOLLOWING URL**
 [CLICK TO VEW APP](http://a34b6b3c0afb74a67807cf25f4e64e09-271916082.us-east-1.elb.amazonaws.com:8000/)
+
+
+# Setting up observability and logging using prometheus and grafana
+**To Do these install helm on you kubectl cluster**
+**After installation setup prometheus and grafana deployments and services**
+**Run the following command**
+`helm repo add prometheus-community https://prometheus-community.github.io/helm-charts`
+`helm repo add grafana https://grafana.github.io/helm-charts`
+`helm repo update`
+
+**Install prometheus next**
+`helm install prometheus prometheus-community/prometheus`
+
+**After this is done we will portforward our svc to meet it endpoints**
+**We Would Run the following command**
+`kubectl expose service prometheus-server — type=LoadBalancer — target-port=9090 — name=prometheus-server-ext`
+**Check the dashboard below**
+![prometheus dashboard](abb4a2dee63c8443f92c59591d65d9f2-39184252.us-east-1.elb.amazonaws.com:80)
+
+**We would connect to grafana by port-forwarding and since it doesnt contain a loadbalancerwewould run the following command**
