@@ -12,7 +12,7 @@
 
 **The source code is present in the master branch of this repository.**</br>
 
-**Follow through to the end to see how to run this application [CLICK TO VIEW APP](http://a34b6b3c0afb74a67807cf25f4e64e09-271916082.us-east-1.elb.amazonaws.com:8000/) in a pipeline.**</br>
+**Follow through to the end to see how to run this application ![Image of Application](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/sharks output.png) in a pipeline.**</br>
 
 # Before we consider the CI/CD pipeline lets see the system design for this project.</br>
 ![System design](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/Untitled%20Diagram.drawio.png)</br>
