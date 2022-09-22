@@ -12,7 +12,7 @@
 
 **The source code is present in the master branch of this repository.**</br>
 
-**Follow through to the end to see how to run this application ![Image of Application](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/sharks output.png) in a pipeline.**</br>
+**Follow through to the end to see how to run this application ![Image of Application](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/sharks%20output.png) in a pipeline.**</br>
 
 # Before we consider the CI/CD pipeline lets see the system design for this project.</br>
 ![System design](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/Untitled%20Diagram.drawio.png)</br>
@@ -72,9 +72,9 @@
 *Service output*
 ![Kubectl services](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/youverify10.PNG)
 
-# ACCESS OUR APPLICATION
+# VIEW OUR APPLICATION IMAGE BELOW
 **WE CAN ACCESS OUR APPLICATION USING THE FOLLOWING URL**
-[CLICK TO VIEW APP](http://a34b6b3c0afb74a67807cf25f4e64e09-271916082.us-east-1.elb.amazonaws.com:8000/)
+[Application Image]](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/sharks%20output.png)
 
 
 # Setting up observability and logging using prometheus and grafana
@@ -91,8 +91,7 @@
 **After this is done we will portforward the services to meet it endpoints.**</br>
 **We Would Run the following command**</br>
 `kubectl expose service prometheus-server — type=LoadBalancer — target-port=9090 — name=prometheus-server-ext`</br>
-**Check the dashboard below**</br>
-[Click to view prometheus dashboard](http://abb4a2dee63c8443f92c59591d65d9f2-39184252.us-east-1.elb.amazonaws.com:80)</br>
+**Dashboard created and is connected to the database engine**
 
 **We would connect to grafana by port-forwarding,and since it does not contain a loadbalancer we will connect to it through the following command.**</br>
 `kubectl port-forward svc/grafana 8081:80`</br>
@@ -102,6 +101,7 @@
 ![Dashboard two](https://github.com/Osiephri/CICDWITHCompose/blob/main/assets/youverfy16.PNG)
 
 # Shifting Workload from API-Application to Microservices.</br>
+**We are going to see the various aspects of our SDLC to be well packaged and deployed to public instances and archictectures to meet the demands of the end users.**</br>  
 - **Development.**</br>
 `- Shift Application components into several files and packages to be integrated. `</br>
 - **Packaging.**</br>
