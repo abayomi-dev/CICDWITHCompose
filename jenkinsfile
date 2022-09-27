@@ -27,6 +27,7 @@ pipeline {
             steps{
                 bat 'docker login -u scinet0786 -p *bay0mi12'
                 bat  "docker push 'scinet0786/kompose:latest'"
+                echo "This command"
             }
         }
         
