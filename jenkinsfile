@@ -26,13 +26,13 @@ pipeline {
         stage('push image to hub'){
             steps{
                 sh 'docker login -u scinet0786 -p *bay0mi12'
-                sh  "docker push 'scinet0786/kompose:latest'"
+                sh  "docker push 'scinet0786/kompose:${env.BUILD_ID}'"
             }
         }
         
         stage('deploy to EKS cluster'){
             steps{
-                sh 'kubectl version'
+                sh 'kubectl version --short'
             }
         }
 }
