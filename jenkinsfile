@@ -18,15 +18,15 @@ pipeline {
         stage('Build image'){
             steps{
                 script{
-                    sh 'docker build -t scinet0786/kompose:latest .'
+                    bat 'docker build -t scinet0786/kompose:latest .'
                 }
             }
         }
         
         stage('push image to hub'){
             steps{
-                sh 'docker login -u scinet0786 -p *bay0mi12'
-                sh  "docker push 'scinet0786/kompose:latest'"
+                bat 'docker login -u scinet0786 -p *bay0mi12'
+                bat  "docker push 'scinet0786/kompose:latest'"
             }
         }
         
