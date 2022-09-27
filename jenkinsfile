@@ -30,7 +30,7 @@ pipeline {
             }
         }
         
-        stage('deploy to Eks cluster'){
+        stage('deploy to EKS cluster'){
             steps{
                 withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'kubernetes', namespace: '', serverUrl: '') {
                     sh "kubectl version"
